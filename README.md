@@ -122,7 +122,7 @@ Twoja pomoc w udoskonalaniu ARA jest bardzo mile widziana!
 
 Niniejsze oprogramowanie jest objęte licencją MIT.
 
-Copyright (c) 2025 [Twoje Imię/Nazwa Organizacji - Jeśli to jest Twój projekt, zastąp ten tekst]
+Copyright (c) 2025 KaliWho & ZeroOne
 
 Niniejszym udziela się bezpłatnie każdej osobie uzyskującej kopię tego oprogramowania i powiązanych plików dokumentacji (dalej "Oprogramowanie") prawa do korzystania z Oprogramowania bez ograniczeń, w tym między innymi do praw do używania, kopiowania, modyfikowania, łączenia, publikowania, rozpowszechniania, sublicencjonowania i/lub sprzedawania kopii Oprogramowania, oraz do zezwalania osobom, którym Oprogramowanie zostało dostarczone, na to samo, z zastrzeżeniem następujących warunków:
 
