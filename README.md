@@ -1,6 +1,6 @@
-# Aquabot Reactive Agent (ARA) - Wersja 1.0.41
+# Android Root Assistant (ARA) - Wersja 1.0.41 - Darknet Edition
 
-To repozytorium zawiera skrypt Python dla Aquabot Reactive Agent (ARA), wersja 1.0.41. ARA jest zaprojektowany do automatyzacji działań w zewnętrznym środowisku gry lub symulacji "Aquabot", działając jako inteligentny agent zdolny do wykrywania otoczenia, zarządzania swoim wewnętrznym stanem i wykonywania reaktywnych strategii.
+Ten projekt zawiera skrypt Python dla Android Root Assistant (ARA), wersja 1.0.41, w ulepszonej edycji Darknet. ARA to narzędzie zaprojektowane do pomagania użytkownikom w zarządzaniu, diagnozowaniu i potencjalnym rootowaniu urządzeń z systemem Android, oferujące interfejs graficzny w stylu terminala.
 
 ## Spis treści
 - [Opis](#opis)
@@ -17,90 +17,96 @@ To repozytorium zawiera skrypt Python dla Aquabot Reactive Agent (ARA), wersja 1
 
 ## Opis
 
-ARA 1.0.41 to zaawansowany agent reaktywny opracowany do nawigowania, interakcji i podejmowania decyzji w czasie rzeczywistym w środowisku "Aquabot". Przetwarza informacje o stanie gry otrzymane za pośrednictwem komunikacji międzyprocesowej (IPC) i reaguje, symulując wprowadzanie danych z klawiatury i wykonując predefiniowane działania. Podstawową siłą agenta jest jego zdolność do zarządzania złożonymi stanami wewnętrznymi, stosowania algorytmów wyszukiwania ścieżek i strategicznego podejmowania decyzji w celu osiągnięcia celów, takich jak zbieranie zasobów, angażowanie wrogów lub unikanie zagrożeń.
+ARA 1.0.41 to rozbudowane narzędzie do zarządzania urządzeniami z systemem Android, zbudowane w oparciu o Python i Tkinter. Oferuje intuicyjny interfejs użytkownika przypominający terminal, umożliwiający wykrywanie urządzeń, zbieranie informacji systemowych, analizę bezpieczeństwa, przeglądanie logów `logcat` w czasie rzeczywistym oraz dostęp do potencjalnych metod rootowania. Jest to "Enhanced Darknet Edition", co odzwierciedla jego estetykę interfejsu oraz potencjalnie zaawansowane funkcje.
 
 ## Funkcje
 
-- **Zarządzanie stanem:** Utrzymuje kompleksową wewnętrzną reprezentację świata gry, w tym:
-    - Aktualne współrzędne (X, Y, Z) i orientację.
-    - Poziomy zdrowia, amunicji i pieniędzy.
-    - Aktywne przedmioty i ekwipunek.
-    - Szczegółowe informacje o mapie, w tym odkryte obszary, przeszkody i interesujące miejsca.
-- **Komunikacja międzyprocesowa (IPC):** Komunikuje się z aplikacją "Aquabot" za pomocą nazwanego potoku Windows (`\\.\pipe\AquaWarSDK` do wysyłania poleceń i `\\.\pipe\FromAquaWarSDK` do odbierania danych).
-- **Symulacja wprowadzania z klawiatury:** Wykorzystuje `pynput` do symulowania naciśnięć klawiszy, umożliwiając agentowi kontrolowanie działań Aquabota w grze.
-- **Wyszukiwanie ścieżek:** Implementuje algorytm wyszukiwania A* dla efektywnej nawigacji, umożliwiając botowi znajdowanie optymalnych ścieżek, jednocześnie unikając przeszkód i znanych zagrożeń na mapie gry.
-- **Reaktywne podejmowanie decyzji:** Zawiera solidny moduł podejmowania decyzji, który ocenia bieżący stan gry i wybiera odpowiednie działania w oparciu o zdefiniowany zestaw zasad i priorytetów (np. atak, jeśli w zasięgu, zbieranie przedmiotów, jeśli jest mało, ucieczka, jeśli jest krytycznie uszkodzony).
-- **Wykonywanie akcji:** Obsługuje szeroki zakres działań, w tym:
-    - Ruch (do przodu, do tyłu, obracanie się).
-    - Atakowanie (strzelanie).
-    - Użycie przedmiotów (np. apteczki, ulepszenia).
-    - Eksploracja mapy.
-- **Dynamiczne dostosowywanie strategii:** Dostosowuje swoją strategię w oparciu o zmiany w środowisku gry w czasie rzeczywistym, takie jak obecność wroga, dostępne zasoby i stan zdrowia.
+-   **Wykrywanie Urządzeń Android:** Automatyczne wykrywanie podłączonych urządzeń Android za pomocą ADB (Android Debug Bridge).
+-   **Szczegółowe Informacje o Urządzeniu:** Zbieranie i wyświetlanie kluczowych informacji o urządzeniu, takich jak model, producent, wersja Androida, SDK, architektura i identyfikator kompilacji.
+-   **Analiza Statusu Roota:** Sprawdzanie, czy urządzenie jest zrootowane, oraz wykrywanie obecności Magisk.
+-   **Skanowanie Bezpieczeństwa:** Podstawowa analiza zainstalowanych pakietów w poszukiwaniu podejrzanych aplikacji.
+-   **Wyszukiwanie Metod Rootowania:** Dynamiczne sugerowanie potencjalnych metod rootowania w oparciu o wykryte informacje o urządzeniu (np. Magisk, Odin dla Samsunga, Mi Unlock dla Xiaomi, KingRoot dla starszych urządzeń).
+-   **Strumień Logcat w Czasie Rzeczywistym:** Wyświetlanie i zapisywanie logów systemowych Androida (`logcat`) w czasie rzeczywistym.
+-   **Zarządzanie Logami:** Możliwość zapisywania i czyszczenia logów systemowych oraz logów `logcat`.
+-   **Zintegrowany Terminal Techniczny:** Umożliwia użytkownikowi wykonywanie niestandardowych poleceń `adb` lub `shell` bezpośrednio z aplikacji.
+-   **Funkcje Rootowania (Placeholdery):** Przyciski i sekcje dla funkcji takich jak "Auto Root", "Choose Method", "Unlock Bootloader" i "Magisk Wizard", które są placeholderami do przyszłej implementacji lub wymagają ręcznej interwencji.
+-   **Interfejs w Stylu Terminala:** Atrakcyjny interfejs graficzny (GUI) oparty na Tkinter, stylizowany na terminal, z ciemnym schematem kolorów i wyraźnymi czcionkami.
 
 ## Wymagania systemowe
 
-- **System operacyjny:** Windows (ze względu na użycie nazwanego potoku i zgodność `pynput`).
-- **Python:** Wersja 3.x (testowano z nowszymi wersjami Pythona 3).
-- **Zewnętrzna aplikacja "Aquabot":** Specyficzna gra lub symulacja "Aquabot", z którą ARA jest zaprojektowany do interakcji. Ta aplikacja musi być uruchomiona i poprawnie skonfigurowana do komunikacji za pośrednictwem określonych nazwanego potoków.
+-   **System operacyjny:** Windows (aplikacja korzysta z `subprocess` do wywoływania poleceń `adb` i `logcat`).
+-   **Python:** Wersja 3.x (testowano z nowszymi wersjami Pythona 3).
+-   **ADB (Android Debug Bridge):** Musi być zainstalowany i dostępny w zmiennych środowiskowych systemu (PATH).
+-   **Urządzenie Android:** Fizyczne urządzenie z systemem Android z włączonym trybem debugowania USB, podłączone do komputera.
 
 ## Instalacja
 
 1.  **Sklonuj repozytorium (lub pobierz skrypt):**
     ```bash
-    git clone https://github.com/twoja-nazwa-uzytkownika/aquabot-ara.git
-    cd aquabot-ara
+    git clone https://github.com/twoja-nazwa-uzytkownika/android-root-assistant.git
+    cd android-root-assistant
     ```
-    (Uwaga: Zastąp `https://github.com/twoja-nazwa-uzytkownika/aquabot-ara.git` rzeczywistym adresem URL repozytorium, jeśli ten skrypt jest częścią większego projektu.)
+    (Uwaga: Zastąp `https://github.com/twoja-nazwa-uzytkownika/android-root-assistant.git` rzeczywistym adresem URL repozytorium, jeśli ten skrypt jest częścią większego projektu.)
 
 2.  **Zainstaluj zależności Python:**
     ```bash
-    pip install pynput
+    pip install "pynput<1.0"
+    pip install psutil
     ```
+    (Skrypt używa `tkinter`, który jest zazwyczaj dołączany do standardowych instalacji Pythona na Windowsie.)
+
+3.  **Upewnij się, że ADB jest zainstalowane i działa:**
+    -   Pobierz pakiet SDK Platform-Tools ze strony dla deweloperów Androida.
+    -   Rozpakuj go i dodaj ścieżkę do folderu `platform-tools` do zmiennych środowiskowych systemu PATH.
+    -   Sprawdź, czy `adb` działa, otwierając wiersz polecenia i wpisując `adb devices`.
 
 ## Użycie
 
-1.  **Upewnij się, że aplikacja "Aquabot" jest uruchomiona:** Gra/symulacja musi być aktywna i gotowa do komunikacji za pośrednictwem nazwanego potoku.
+1.  **Podłącz urządzenie Android:** Podłącz telefon lub tablet z Androidem do komputera za pomocą kabla USB. Upewnij się, że debugowanie USB jest włączone w opcjach deweloperskich urządzenia.
 2.  **Uruchom skrypt ARA:**
     ```bash
     python ARA_1.0.41.py
     ```
-
-    Po uruchomieniu skrypt spróbuje nawiązać komunikację z aplikacją Aquabot, monitorować jej stan i autonomicznie rozpocznie wykonywanie działań.
+    Aplikacja uruchomi się, automatycznie sprawdzi połączenie ADB i spróbuje wykryć podłączone urządzenie.
+3.  **Skanowanie Urządzenia:** Kliknij przycisk "🔍 SCAN", aby zebrać informacje o urządzeniu, statusie rootowania i dostępnych metodach.
+4.  **Logcat:** Użyj przycisków w panelu "LIVE LOGCAT STREAM", aby uruchomić, zatrzymać, zapisać lub wyczyścić strumień logów Androida.
+5.  **Terminal Techniczny:** Wpisz polecenia `adb` lub `shell` w polu tekstowym "TECHNICAL SHELL ACCESS" i naciśnij Enter lub kliknij "EXECUTE", aby wykonać je na urządzeniu.
 
 ## Konfiguracja
 
-Większość konfiguracji jest zakodowana na stałe w skrypcie `ARA_1.0.41.py`. Kluczowe parametry obejmują:
+Większość konfiguracji jest wbudowana w kod źródłowy `ARA_1.0.41.py`. Użytkownik może edytować plik, aby:
 
--   **Ścieżki do nazwanego potoku:**
-    -   `pipe_to_aquawarsdk_name = r'\\.\pipe\AquaWarSDK'`
-    -   `pipe_from_aquawarsdk_name = r'\\.\pipe\FromAquaWarSDK'`
-    Można je zmodyfikować, jeśli środowisko Aquabot używa innych nazw potoków.
--   **Stałe specyficzne dla gry:** Wartości takie jak `MAX_HEALTH`, `MAX_AMMO`, `MAP_SIZE`, identyfikatory przedmiotów i mapowania klawiszy akcji są zdefiniowane w skrypcie. Dostosuj je do konkretnej wersji lub konfiguracji gry "Aquabot", której używasz.
--   **Progi decyzyjne:** Parametry wpływające na zachowanie bota, takie jak kiedy uciekać, kiedy atakować lub które przedmioty priorytetyzować, są osadzone w logice.
-
-W przypadku znaczących zmian wymagana jest bezpośrednia modyfikacja pliku `ARA_1.0.41.py`.
+-   Zmienić ścieżki katalogów roboczych (`WORK_DIR`, `DOWNLOADS_DIR`, `LOGS_DIR`).
+-   Dostosować stałe interfejsu użytkownika, takie jak czcionki i schematy kolorów w sekcji `self.colors`.
+-   Modyfikować logikę wykrywania metod rootowania w funkcji `detect_root_methods_advanced`.
 
 ## Zależności
 
--   `pynput`: Używany do kontrolowania i monitorowania urządzeń wejściowych, w szczególności do symulowania naciśnięć klawiszy.
+-   `tkinter`: Standardowa biblioteka GUI dla Pythona (zazwyczaj wbudowana).
+-   `subprocess`: Do uruchamiania poleceń systemowych (np. `adb`).
+-   `threading`: Do operacji asynchronicznych (np. strumień `logcat`).
+-   `pathlib`, `os`, `sys`, `shutil`: Standardowe moduły Pythona do operacji na plikach i systemie.
+-   `datetime`: Do zarządzania czasem i datami.
+-   `pynput` (wspomniane w wymaganiach instalacyjnych, chociaż w dostarczonym kodzie nie ma bezpośredniego użycia, co sugeruje, że mogło być przeznaczone do innych interakcji lub jest częścią niewykorzystanego kodu).
 
 ## Jak to działa
 
-Agent działa w ciągłej pętli:
-1.  **Odbieranie stanu:** Odczytuje bieżące dane stanu gry z `\\.\pipe\FromAquaWarSDK`.
-2.  **Aktualizacja modelu wewnętrznego:** Analizuje odebrane dane i aktualizuje swój obiekt `State`, który obejmuje mapę, statystyki bota i lokalizacje wrogów.
-3.  **Wyszukiwanie ścieżek (jeśli jest potrzebne):** Jeśli cel jest ustawiony (np. przedmiot do zebrania, wróg do ścigania), algorytm A* oblicza optymalną ścieżkę.
-4.  **Podejmowanie decyzji:** Na podstawie zaktualizowanego stanu i bieżących celów agent określa najbardziej odpowiednie działanie (np. ruch, strzał, użycie przedmiotu, zmiana celu).
-5.  **Wykonanie akcji:** Wysyła polecenia (symulowane naciśnięcia klawiszy) do aplikacji "Aquabot" za pośrednictwem `\\.\pipe\AquaWarSDK`.
-
-Ten reaktywny cykl pozwala agentowi dynamicznie reagować na zmiany w świecie gry.
+ARA działa jako aplikacja desktopowa z GUI:
+1.  **Inicjalizacja:** Po uruchomieniu, aplikacja inicjuje interfejs użytkownika i automatycznie sprawdza obecność ADB oraz status połączenia urządzenia.
+2.  **Skanowanie:** Po kliknięciu "SCAN", zbierane są informacje o urządzeniu za pomocą poleceń `adb shell getprop`, analizowany jest status rootowania (`which su`, `pm list packages | grep magisk`), a także przeprowadzana jest podstawowa analiza bezpieczeństwa.
+3.  **Wykrywanie Metod Rootowania:** Na podstawie zebranych danych o urządzeniu, skrypt sugeruje potencjalne metody rootowania, takie jak Magisk, Odin czy KingRoot, przedstawiając ich kompatybilność i kroki.
+4.  **Strumieniowanie Logcat:** Osobny wątek uruchamia `adb logcat` i w czasie rzeczywistym przesyła dane do okna tekstowego GUI.
+5.  **Terminal Techniczny:** Umożliwia bezpośrednie wykonywanie poleceń `adb` i wyświetlanie wyników w osobnym panelu terminala.
 
 ## Rozwiązywanie problemów
 
--   **Problemy z połączeniem potoku:** Upewnij się, że aplikacja "Aquabot" jest uruchomiona i że ścieżki nazwanego potoku w `ARA_1.0.41.py` odpowiadają tym używanym przez aplikację.
--   **Uprawnienia `pynput`:** W niektórych systemach Windows `pynput` może wymagać specjalnych uprawnień do symulowania wprowadzania z klawiatury. Uruchom terminal lub IDE jako administrator, jeśli napotkasz problemy.
--   **Nieprawidłowe zachowanie:** Jeśli bot zachowuje się nieoczekiwanie, sprawdź, czy stałe specyficzne dla gry (np. rozmiar mapy, identyfikatory przedmiotów, przypisania klawiszy) w skrypcie dokładnie odzwierciedlają środowisko "Aquabot".
--   **Wydajność:** Duże mapy lub złożone stany gry mogą wpływać na wydajność wyszukiwania ścieżek. W razie potrzeby rozważ optymalizację implementacji A* lub uproszczenie reprezentacji mapy.
+-   **"ADB: NOT FOUND":** Upewnij się, że ADB jest poprawnie zainstalowane, a ścieżka do folderu `platform-tools` jest dodana do zmiennych środowiskowych PATH.
+-   **"DEVICE: OFFLINE" / Brak wykrycia urządzenia:**
+    -   Sprawdź połączenie kablowe USB.
+    -   Upewnij się, że debugowanie USB jest włączone w opcjach deweloperskich urządzenia Android.
+    -   Spróbuj ponownie uruchomić `adb server` ręcznie: `adb kill-server`, a następnie `adb start-server`.
+-   **Problemy z `logcat`:** Jeśli strumień `logcat` nie działa, upewnij się, że ADB jest połączone z urządzeniem i że urządzenie zezwoliło na debugowanie USB.
+-   **Brak reakcji GUI:** Jeśli aplikacja przestanie odpowiadać, może to być spowodowane problemem z wątkami. Spróbuj ponownie uruchomić aplikację.
 
 ## Rozwój i Współpraca
 
