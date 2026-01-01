@@ -1,10 +1,11 @@
-# Android Root Assistant (ARA) - Wersja 1.0.41 - Darknet Edition
+# Android Root Assistant (ARA) - Wersja 1.0.41 - Dark Edition
+![ARA_ANDROID_ROOT_ASSISTANT_social_preview](https://github.com/user-attachments/assets/23cc8cbb-3c06-49dd-a01f-feb108cb57da)
 
 Ten projekt zawiera skrypt Python dla Android Root Assistant (ARA), wersja 1.0.41, w ulepszonej edycji Darknet. ARA to narzędzie zaprojektowane do pomagania użytkownikom w zarządzaniu, diagnozowaniu i potencjalnym rootowaniu urządzeń z systemem Android, oferujące interfejs graficzny w stylu terminala.
 
 ## Spis treści
 - [Opis](#opis)
-- [Funkcje](#funkcje)
+- [Funkcje](#funkcje)    
 - [Wymagania systemowe](#wymagania-systemowe)
 - [Instalacja](#instalacja)
 - [Użycie](#użycie)
